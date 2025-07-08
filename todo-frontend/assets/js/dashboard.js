@@ -120,12 +120,6 @@ function updateDateDisplay() {
     }
 }
 
-
-// ===================================================================
-// //                    PEMAHAMAN SAMPE SINI
-// ===================================================================
-
-
 function createTaskElement(task) { //Mesin pencetak 1 kartu berisi informasi lengkap tentang 1 tugas
 
   // 1. Membuat Kartu Kosong
@@ -186,7 +180,6 @@ function createTaskElement(task) { //Mesin pencetak 1 kartu berisi informasi len
   // Mengembalikan kartu yang sudah jadi
   return li;
 }
-
 
 function selectTask(taskElement, taskData) {
     // Deselect previously selected task
@@ -577,14 +570,6 @@ function displayEmployeeSpecificTasks(tasks) {
 }
 
 
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const user = getCurrentUser(); // Get current user
 
@@ -929,7 +914,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const addBtn = document.getElementById("addBtn");
   const taskInput = document.getElementById("taskInput");
@@ -949,7 +933,6 @@ document.addEventListener("DOMContentLoaded", function () {
     taskInput.value = "";
   });
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
