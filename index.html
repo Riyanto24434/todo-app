@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To-Do List Mobile</title>
+  <title>To-Do List</title>
+  <script defer src="app.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-gray-100 min-h-screen p-4">
-  <h1 class="text-xl font-bold text-center mb-4">To-Do List</h1>
-  <div id="current-time" class="text-center text-sm text-gray-600 mb-2"></div>
+  <div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
 
-  <!-- 🔵 Username -->
-  <div class="mb-4 text-center">
-    <div id="username-display" class="text-lg font-semibold text-blue-600"></div>
-    <input id="username-input" type="text" placeholder="Masukkan nama Anda..." class="p-2 border rounded mt-2" />
-    <button id="save-username-btn" class="ml-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Simpan</button>
+    <div class="mb-4">
+      <div id="username-display" class="mb-2 text-lg font-semibold"></div>
+      <input id="username-input" type="text" placeholder="Masukkan nama Anda" class="p-2 border rounded w-full mb-2" />
+      <input id="jabatan-input" type="text" placeholder="Masukkan jabatan Anda" class="p-2 border rounded w-full mb-2" />
+      <button id="save-username-btn" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Simpan</button>
+    </div>
+
+    <div id="current-time" class="text-sm text-gray-600 mb-4"></div>
+
+    <form id="task-form" class="flex flex-col gap-2 mb-4">
+      <input id="task-input" type="text" placeholder="Tambah tugas baru..." class="p-2 border rounded" />
+      <input id="deadline-input" type="date" class="p-2 border rounded" />
+      <select id="priority-input" class="p-2 border rounded">
+        <option value="Low">Prioritas Rendah</option>
+        <option value="Medium">Prioritas Sedang</option>
+        <option value="High">Prioritas Tinggi</option>
+      </select>
+      <button class="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Tambah Tugas</button>
+    </form>
+
+    <div class="flex gap-2 mb-4">
+      <button class="filter-btn bg-gray-200 text-gray-800 px-3 py-1 rounded" data-filter="all">Semua</button>
+      <button class="filter-btn bg-gray-200 text-gray-800 px-3 py-1 rounded" data-filter="active">Aktif</button>
+      <button class="filter-btn bg-gray-200 text-gray-800 px-3 py-1 rounded" data-filter="completed">Selesai</button>
+    </div>
+
+    <ul id="task-list" class="space-y-2"></ul>
+
+    <button id="clear-tasks-btn" class="mt-4 bg-red-500 text-white w-full py-2 rounded hover:bg-red-600">🗑️ Hapus Semua Tugas</button>
   </div>
-
-  <!-- 🔵 Form Tambah Tugas -->
-  <form id="task-form" class="flex flex-col sm:flex-row gap-2 mb-4">
-    <input id="task-input" type="text" placeholder="Tulis tugas..." class="flex-1 p-2 border rounded" required />
-    <input id="deadline-input" type="date" class="p-2 border rounded" />
-    <select id="priority-input" class="p-2 border rounded">
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah</button>
-  </form>
-
-  <!-- 🔵 Filter -->
-  <div id="filter-buttons" class="flex justify-center gap-2 mb-4">
-    <button data-filter="all" class="filter-btn px-3 py-1 rounded bg-gray-200 text-sm">Semua</button>
-    <button data-filter="completed" class="filter-btn px-3 py-1 rounded bg-gray-200 text-sm">Selesai</button>
-    <button data-filter="active" class="filter-btn px-3 py-1 rounded bg-gray-200 text-sm">Belum</button>
-  </div>
-
-  <!-- 🔵 Daftar Tugas -->
-  <ul id="task-list" class="space-y-2"></ul>
-
-  <!-- 🔵 Tombol Hapus Semua -->
-  <button id="clear-tasks-btn" class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-    🧹 Hapus Semua Tugas
-  </button>
-
-  <script src="app.js"></script>
 </body>
-
 </html>

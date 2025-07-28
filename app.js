@@ -7,6 +7,7 @@ const taskList = document.getElementById("task-list");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 const usernameInput = document.getElementById("username-input");
+const jabatanInput = document.getElementById("jabatan-input");
 const saveUsernameBtn = document.getElementById("save-username-btn");
 const usernameDisplay = document.getElementById("username-display");
 const clearTasksBtn = document.getElementById("clear-tasks-btn");
@@ -114,20 +115,26 @@ function updateFilterStyles() {
   });
 }
 
-// 🔵 Username
+// 🔵 Username + Jabatan
 function loadUsername() {
-  const stored = localStorage.getItem("username");
-  if (stored) {
-    usernameDisplay.textContent = `👤 Halo, ${stored}`;
+  const storedName = localStorage.getItem("username");
+  const storedJabatan = localStorage.getItem("jabatan");
+
+  if (storedName && storedJabatan) {
+    usernameDisplay.innerHTML = `👤 Halo, <strong>${storedName}</strong><br><span class="text-sm text-gray-600">${storedJabatan}</span>`;
     usernameInput.classList.add("hidden");
+    jabatanInput.classList.add("hidden");
     saveUsernameBtn.classList.add("hidden");
   }
 }
 
 saveUsernameBtn.addEventListener("click", () => {
   const name = usernameInput.value.trim();
-  if (name) {
+  const jabatan = jabatanInput.value.trim();
+
+  if (name && jabatan) {
     localStorage.setItem("username", name);
+    localStorage.setItem("jabatan", jabatan);
     loadUsername();
   }
 });
